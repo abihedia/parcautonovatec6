@@ -9,11 +9,7 @@
 
             <xpath expr="//form/sheet/div[1]" position="after" >
                 <div class="oe_button_box" name="button_box_1">
-                             <button name="action_open_comp_moyen" type="object" class="oe_stat_button" icon="fa-tachometer">
-                                <div class="o_stat_info">
-                                    <span class="o_stat_text">Volume moyen des compteurs</span>
-                                </div>
-                             </button>
+                             
 
                               <button name="action_open_comp_noir" type="object" class="oe_stat_button" icon="fa-tachometer">
                                 <div class="o_stat_info">
@@ -25,6 +21,11 @@
                                 <div class="o_stat_info">
                                     <field name="count_comp_coleur" class="o_stat_value"/>
                                     <span class="o_stat_text">Compteur C </span>
+                                </div>
+                             </button>
+                            <button name="action_open_comp_moyen" type="object" class="oe_stat_button" icon="fa-tachometer">
+                                <div class="o_stat_info">
+                                    <span class="o_stat_text">Volume moyen des compteurs</span>
                                 </div>
                              </button>
                          <button name="preview_art" type="object" class="oe_stat_button" icon="fa-globe icon">
