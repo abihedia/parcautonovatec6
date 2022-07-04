@@ -1,7 +1,7 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    <record model="ir.ui.view" id="compTeurNoirModel_list_view">
+    <record model="ir.ui.view" id="moycompteurnoircol_list_view">
       <field name="name">moycompteurnoircol list</field>
       <field name="model">moycompteurnoircol</field>
       <field name="arch" type="xml">
@@ -15,7 +15,7 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="compTeurNoirModel_form_view">
+    <record model="ir.ui.view" id="moycompteurnoircol_form_view">
       <field name="name">moycompteurnoircol form</field>
       <field name="model">moycompteurnoircol</field>
       <field name="arch" type="xml">
