@@ -308,17 +308,17 @@ class factAuto(models.Model):
 class SaleOrderHeritage(models.Model):
     _inherit = 'sale.order'
     cout_copie_noires = fields.Many2one('product.product', string="Copies noires",
-                                        default=lambda self: self.env['product.product'].search([('id', '=', 66)]))
+                                        default=lambda self: self.env['product.product'].search([('id', '=', 3)]))
     cout_copie_coleurs = fields.Many2one('product.product', string="Copies couleurs",
-                                         default=lambda self: self.env['product.product'].search([('id', '=', 67)]))
+                                         default=lambda self: self.env['product.product'].search([('id', '=', 1)]))
     cout_copie_noires_sup = fields.Many2one('product.product', string="Copies noires supplémentaires",
-                                            default=lambda self: self.env['product.product'].search([('id', '=', 68)]))
+                                            default=lambda self: self.env['product.product'].search([('id', '=', 4)]))
     cout_copie_coleurs_sup = fields.Many2one('product.product', string="Copies couleurs supplémentaires",
-                                             default=lambda self: self.env['product.product'].search([('id', '=', 69)]))
+                                             default=lambda self: self.env['product.product'].search([('id', '=', 2)]))
     services = fields.Many2one('product.product', string="Services",
-                               default=lambda self: self.env['product.product'].search([('id', '=', 70)]))
+                               default=lambda self: self.env['product.product'].search([('id', '=', 6)]))
     abonnements = fields.Many2one('product.product', string="Montant abonnement",
-                                             default=lambda self: self.env['product.product'].search([('id', '=', 72)]))
+                                             default=lambda self: self.env['product.product'].search([('id', '=', 5)]))
 
     sale_commande_fleet_ids = fields.One2many('listboncommandefleet', inverse_name='devis_id', string="Matériels bon de commande")
 
