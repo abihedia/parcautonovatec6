@@ -25,10 +25,11 @@
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.view_partner_form"/>
                 <field name="arch" type="xml">
-                             <xpath expr="//field[@name='name']" position="after">   
-                          <span> - </span> <field name="type_contact" style="background-color: #5E8EBA;" attrs="{'invisible': [('type_contact','=','Prospect')]}"/>
+                             <xpath expr="//sheet/div[2]/h1[1]" position="after">   
+                                     <span> - </span> <field name="type_contact" style="background-color: #5E8EBA;" attrs="{'invisible': [('type_contact','=','Prospect')]}"/>
                                           <field name="type_contact" attrs="{'invisible': [('type_contact','=','Client')]}"/>
-                      </xpath>
+                      
+                          </xpath>
                    
                      <xpath expr="//sheet/div[2]/div[1]" position="after">
                                <br/>   <h4><label for="code_client"/>
