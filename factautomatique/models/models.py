@@ -51,6 +51,7 @@ class factAuto(models.Model):
                         'pricelist_id': j[0].pricelist_id.id,
                         'warehouse_id': j[0].warehouse_id.id,
                         'state': 'sale',
+                        'sale_maintnance': True,
                     }
                     purchase_id1 = self.env['sale.order'].sudo().create(sale_vals)
                     purchase_id = purchase_id1.id
@@ -181,6 +182,7 @@ class factAuto(models.Model):
                             'pricelist_id': j[0].pricelist_id.id,
                             'warehouse_id': j[0].warehouse_id.id,
                             'state': 'sale',
+                            'sale_maintnance': True,
                         }
                         purchase_id1 = self.env['sale.order'].sudo().create(sale_vals)
                         purchase_id = purchase_id1.id
@@ -307,6 +309,7 @@ class factAuto(models.Model):
 
 class SaleOrderHeritage(models.Model):
     _inherit = 'sale.order'
+    sale_maintnance = fields.Boolean(string="Maintenance", default=False)
     cout_copie_noires = fields.Many2one('product.product', string="Copies noires",
                                         default=lambda self: self.env['product.product'].search([('id', '=', 3)]))
     cout_copie_coleurs = fields.Many2one('product.product', string="Copies couleurs",
