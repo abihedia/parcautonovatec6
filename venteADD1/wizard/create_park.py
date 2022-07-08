@@ -9,6 +9,12 @@ class CreatParkWizard(models.Model):
 
     def create_parck(self):
         if self.devis_dossier:
+            self.devis_dossier.sale_date_Facture = date.today()
+            self.devis_dossier.sale_park = True
+            if self.devis_dossier.sale_periodicite == 'mens':
+                self.devis_dossier.sale_periode = 1
+            if self.devis_dossier.sale_periodicite == 'trim':
+                self.devis_dossier.sale_periode = 3
             sale_vals = {
                 'company_id': self.devis_dossier.company_id.id,
                 'date_order': datetime.now(),
@@ -19,6 +25,7 @@ class CreatParkWizard(models.Model):
                 'pricelist_id': self.devis_dossier.pricelist_id.id,
                 'warehouse_id': self.devis_dossier.warehouse_id.id,
                 'state': 'sale',
+                'sale_maintnance': True,
             }
             purchase_id1 = self.env['sale.order'].sudo().create(sale_vals)
             purchase_id = purchase_id1.id
