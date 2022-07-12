@@ -40,20 +40,7 @@ class FleetContINHERIT(models.Model):
     comp_couleur_depart = fields.Integer(string="Compteur de départ Couleur", default='0')
     comp_noir_depart = fields.Integer(string="Compteur de départ NB", default='0')
 
-    comp_couleur_depart_aide = fields.Integer(string="Départ Couleur", default='0', compute='couleur_depart')
-    comp_noir_depart_aide = fields.Integer(string="Départ NB", default='0',compute='noir_depart')
-
-    @api.depends('comp_couleur_depart')
-    def couleur_depart(self):
-        for rec in self:
-            rec.comp_couleur_depart_aide = rec.comp_couleur_depart
-            print(rec.comp_couleur_depart_aide)
-
-    @api.depends('comp_noir_depart')
-    def noir_depart(self):
-        for rec in self:
-            rec.comp_noir_depart_aide = rec.comp_noir_depart
-            print(rec.comp_noir_depart_aide)
+    compt_depart_ok = fields.Boolean(default=False)
 
 
     ###############
