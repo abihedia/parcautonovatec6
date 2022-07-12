@@ -152,16 +152,17 @@ class ReadingAnexcel(models.Model):
         ids=self.env['excelfile'].search([("matricule", "=", self.matricule)])
         id = self.env['fleet.vehicle'].search([("fleet_serie", "=", self.matricule)])
         if id:
-            id.comp_couleur_after = id.comp_couleur_depart_aide
-            id.comp_noir_after = id.comp_noir_depart_aide
+            if id.compt_depart_ok == False:
+                id.comp_couleur_after = id.comp_couleur_depart
+                id.comp_noir_after = id.comp_noir_depart
+                id.compt_depart_ok = True            
             id.comp_couleur_before = id.comp_couleur_after
             id.comp_couleur_after  = self.Nb_pages_C
             id.comp_noir_before = id.comp_noir_after
             id.comp_noir_after = self.Nb_pages_N
             id.comp_couleur_diff = id.comp_couleur_after - id.comp_couleur_before
             id.comp_noir_diff = id.comp_noir_after - id.comp_noir_before
-            id.comp_couleur_depart_aide = 0
-            id.comp_noir_depart_aide = 0
+           
 
             if id.comp_couleur_diff > id.fleet_forfait_couleur:
                 id.couleur_supp = id.comp_couleur_diff - id.fleet_forfait_couleur
