@@ -120,7 +120,7 @@ class CreatParkWizard(models.Model):
                      for number in range(0, int(rec.product_uom_qty)):
                             vals = {
                                  'fleet_serie': list_numer_serie[number],
-                                 'fleet_fournisseur': 7,
+                                 'fleet_fournisseur': 8,
                                  'fleet_marque': rec.product_id.product_marque.id,
                                  'fleet_Modele': rec.product_id.product_Modele.id,
                                  'fleet_type_1': rec.product_id.product_type,
