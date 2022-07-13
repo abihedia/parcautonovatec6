@@ -22,6 +22,12 @@ class Listserielnumber(models.Model):
 
     def create_serial(self):
         self.sale_order_line.list_serial_number = self.list_serial_number
+        list_ok = []
+        for rec in self.list_serial_number:
+            if rec.cocher == True:
+                list_ok.append(rec)
+        if len(list_ok) == 1 and self.sale_order_line.product_uom_qty == 1:
+            self.sale_order_line.order_line_serie = list_ok[0].name
 
 
     @api.depends("sale_order_line")
