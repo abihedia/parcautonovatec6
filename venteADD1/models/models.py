@@ -8,6 +8,7 @@ class SaleOrderLineHerit(models.Model):
     _inherit    = 'sale.order.line'
     price_sale = fields.Monetary(string="Prix d'achat", compute="compute_pricesale")
     designation = fields.Char(compute="compute_designation",string="Désignation")
+    order_line_serie = fields.Char(string="N° serie",readonly=True)
 
     @api.depends('name')
     def compute_designation(self):
