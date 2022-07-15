@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 class PartnerInvoiceHerit(models.Model):
     _inherit = 'res.partner'
 
-    pfr = fields.Monetary('PFR')
+    pfr = fields.Monetary('PFR', default=20)
     code_service = fields.Char('Code service')
     augmentation_sav = fields.Float(string='Augmentation SAV', default=0.05)
     augmentation_sav_bool= fields.Boolean(string="Augmentation SAV", default=True)
