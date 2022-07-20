@@ -16,7 +16,7 @@ class SaleMoveHeritbondecommande(models.Model):
                 print('sale_periode',sale_bon_commande.sale_periode)
                 print('sale_date_Facture', sale_bon_commande.sale_date_Facture)
             if sale_bon_commande.sale_periode == 1:
-                if sale_bon_commande.sale_date_Facture + relativedelta(months=1) >= date.today()+relativedelta(days=1) and sale_bon_commande.sale_date_Facture <= sale_bon_commande.sale_date_de_fin_contrat :
+                if sale_bon_commande.sale_date_Facture + relativedelta(months=1) >= date.today()+relativedelta(days=1) :
                     if sale_bon_commande.devis_a_cree_commande == True:
                         sale_vals = {
                             'company_id': sale_bon_commande.company_id.id,
