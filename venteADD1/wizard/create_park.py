@@ -98,6 +98,7 @@ class CreatParkWizard(models.Model):
 
             else:
                 expiration_date = False
+            self.devis_dossier.sale_date_de_fin_contrat = expiration_date
 
 
             for rec in self.devis_dossier.order_line:
