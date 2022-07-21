@@ -88,9 +88,7 @@
                         </thead>
                         <t t-foreach="fleets" t-as="fleet">
                             <tr>
-                                <td>
-                                    <t t-esc="fleet.partner_id.name" />
-                                </td>
+                          
 
                                 <td>
                                     <a t-attf-href="/my/fleet/#{fleet.id}">
