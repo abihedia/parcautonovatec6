@@ -19,8 +19,9 @@ class factAuto(models.Model):
                 for fleet in vente.sale_parc_ids:
                     id = self.env['fleet.vehicle.state'].search([('name', '=', "Inactif")])[0].id
                     if fleet.etat_serie == 'a_jour':
-                        list_fleet.append(fleet)
-                        fleet.etat_serie = 'n_ajour'
+                        if fleet.state_id.id != id and fleet.fleet_date_inst <= date.today() <= fleet.fleet_expiration_date + relativedelta(days=1):
+                            list_fleet.append(fleet)
+                            fleet.etat_serie = 'n_ajour'
                     else:
                         if fleet.fleet_expiration_date:
                             print(id)
