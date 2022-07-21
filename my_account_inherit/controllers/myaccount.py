@@ -30,32 +30,32 @@ class CustomerPortalFleet(CustomerPortal):
         PortalFleet = request.env["fleet.vehicle"]
         domain = []
 
-       # searchbar_sortings = {
-        #    "date": {"label": _("Newest"), "order": "create_date desc"},
-         #   "name": {"label": _("Name"), "order": "name"},
-         #   "state": {"label": _("Stage"), "order": "state_id"},
+        searchbar_sortings = {
+            "date": {"label": _("Newest"), "order": "create_date desc"},
+            "name": {"label": _("Name"), "order": "name"},
+            "state": {"label": _("Stage"), "order": "state_id"},
 
-        #}
-       # searchbar_filters = {"all": {"label": _("All"), "domain": []}}
-      #  for state in request.env["fleet.vehicle.state"].search([]):
-      #      searchbar_filters.update(
-         #       {
-         #           str(state.id): {
-         #               "label": state.name,
-           #             "domain": [("state_id", "=", state.id)],
-           #         }
-            #    }
-           # )
+        }
+        searchbar_filters = {"all": {"label": _("All"), "domain": []}}
+        for state in request.env["fleet.vehicle.state"].search([]):
+            searchbar_filters.update(
+                {
+                    str(state.id): {
+                        "label": state.name,
+                    "domain": [("state_id", "=", state.id)],
+                    }
+                }
+            )
 
-        # default sort by order
-      #  if not sortby:
-       #     sortby = "date"
-       # order = searchbar_sortings[sortby]["order"]
+        #default sort by order
+        if not sortby:
+            sortby = "date"
+        order = searchbar_sortings[sortby]["order"]
 
         # default filter by value
-       # if not filterby:
-       #     filterby = "all"
-       # domain += searchbar_filters[filterby]["domain"]
+        if not filterby:
+            filterby = "all"
+        domain += searchbar_filters[filterby]["domain"]
 
         # count for pager
         fleet_count = PortalFleet.search_count(domain)
@@ -78,10 +78,10 @@ class CustomerPortalFleet(CustomerPortal):
                 "page_name": "fleets",
                 "pager": pager,
                 "default_url": "/my/fleets",
-                #"searchbar_sortings": searchbar_sortings,
-               # "sortby": sortby,
-               # "searchbar_filters": searchbar_filters,
-                #"filterby": filterby,
+                "searchbar_sortings": searchbar_sortings,
+                "sortby": sortby,
+                "searchbar_filters": searchbar_filters,
+                "filterby": filterby,
             }
         )
         return request.render("my_account_inherit.portal_my_fleets", values)

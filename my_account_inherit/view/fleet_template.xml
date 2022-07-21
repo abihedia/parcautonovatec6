@@ -45,7 +45,7 @@
                     type="action"
                     class="btn btn-primary"
                     style="float: right; margin-right: 0px; margin-top:5px;"
-                >Saisie Compteurs</button>
+                >New Fleet</button>
             </form>
         </xpath>
     </template>
@@ -60,7 +60,7 @@
                         type="action"
                         class="btn btn-primary"
                         style="float: right; margin-right: 5px;"
-                    >Saisie compteurs</button>
+                    >New Fleet</button>
           </h3>
                 <input
                     type="hidden"
