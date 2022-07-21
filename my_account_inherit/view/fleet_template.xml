@@ -93,7 +93,7 @@
                                 </td>
 
                                 <td>
-                                    <a t-attf-href="/my/fleet/#{fleet.id}">
+                                    <a t-attf-href="/my/fleets/#{fleet.id}">
                                         <t t-esc="fleet.fleet_serie" />
                                     </a>
                                 </td>
