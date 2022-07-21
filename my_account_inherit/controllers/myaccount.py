@@ -27,7 +27,8 @@ class CustomerPortalFleet(CustomerPortal):
         self, page=1, date_begin=None, date_end=None, sortby=None, filterby=None, **kw
     ):
         values = self._prepare_portal_layout_values()
-        PortalFleet = request.env["fleet.vehicle"]
+        partner = request.env.user.partner_id
+        PortalFleet = request.env["fleet.vehicle"].search([("partner_id", "child_of", partner.id)])
         domain = []
 
         searchbar_sortings = {
