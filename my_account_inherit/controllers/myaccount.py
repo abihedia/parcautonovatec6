@@ -87,7 +87,7 @@ class CustomerPortalFleet(CustomerPortal):
         return request.render("my_account_inherit.portal_my_fleets", values)
 
     @http.route(
-        ["/my/fleets/<int:fleet_id>"], type="http", auth="public", website=True
+        ["/my/fleet/<int:fleet_id>"], type="http", auth="public", website=True
     )
     def portal_my_fleet(self, fleet_id=None, access_token=None, **kw):
         try:
