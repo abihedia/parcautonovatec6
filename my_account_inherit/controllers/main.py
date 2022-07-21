@@ -26,7 +26,7 @@ class FleetController(http.Controller):
         )
         fleet.state_id = values.get("state_id")
 
-        return werkzeug.utils.redirect("/my/fleet/" + str(fleet.id))
+        return werkzeug.utils.redirect("/my/fleets/" + str(fleet.id))
 
     @http.route("/new/ticket", type="http", auth="user", website=True)
     def create_new_ticket(self, **kw):

@@ -54,7 +54,7 @@
             <t t-set="breadcrumbs_searchbar" t-value="True" />
             <form method="POST" t-attf-action="/new/fleet">
 
-                <t t-call="portal.portal_searchbar"> <h3>Parc Matériels </h3> </t>
+                <t t-call="portal.portal_searchbar"> </t>
             <!--<button
                         name="create_new_fleet"
                         type="action"
