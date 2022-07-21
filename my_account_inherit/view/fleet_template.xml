@@ -30,7 +30,7 @@
     >
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
             <t t-if="fleet_count" t-call="portal.portal_docs_entry">
-                <t t-set="title">Parc Matériels</t>
+               <!-- <t t-set="title">Parc Matériels</t>-->
                 <t t-set="url" t-value="'/my/fleets'" />
                 <t t-set="count" t-value="fleet_count" />
             </t>
@@ -40,12 +40,12 @@
                     name="csrf_token"
                     t-att-value="request.csrf_token()"
                 />
-                <button
+                <!--<button
                     name="create_new_fleet"
                     type="action"
                     class="btn btn-primary"
                     style="float: right; margin-right: 0px; margin-top:5px;"
-                >New Fleet</button>
+                >New Fleet</button>-->
             </form>
         </xpath>
     </template>
@@ -60,7 +60,7 @@
                         type="action"
                         class="btn btn-primary"
                         style="float: right; margin-right: 5px;"
-                    >New Fleet</button>
+                    >Saisie Compteurs</button>
           </h3>
                 <input
                     type="hidden"
@@ -93,7 +93,7 @@
                                 </td>
 
                                 <td>
-                                    <a t-attf-href="/my/fleets/#{fleet.id}">
+                                    <a t-attf-href="/my/fleet/#{fleet.id}">
                                         <t t-esc="fleet.fleet_serie" />
                                     </a>
                                 </td>

@@ -62,7 +62,7 @@ class FleetController(http.Controller):
                         {
                             "name": c_file.filename,
                             "datas": base64.b64encode(data),
-                            "res_model": "helpdesk.ticket",
+                            "res_model": "fleet.vehicle",
                             "res_id": new_fleet.id,
                         }
                     )

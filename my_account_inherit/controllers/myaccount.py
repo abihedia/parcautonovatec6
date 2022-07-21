@@ -33,7 +33,7 @@ class CustomerPortalFleet(CustomerPortal):
         searchbar_sortings = {
             "date": {"label": _("Newest"), "order": "create_date desc"},
             "name": {"label": _("Name"), "order": "name"},
-            "state": {"label": _("Stage"), "order": "state_id"},
+            "state": {"label": _("State"), "order": "state_id"},
 
         }
         searchbar_filters = {"all": {"label": _("All"), "domain": []}}
@@ -98,6 +98,7 @@ class CustomerPortalFleet(CustomerPortal):
             return request.redirect("/my")
         values = self._fleet_get_page_view_values(fleet_sudo, **kw)
         return request.render("my_account_inherit.portal_fleet_page", values)
+
     def _fleet_get_page_view_values(self, fleet, **kwargs):
         closed_stages = request.env["fleet.vehicle.state"]
         values = {
@@ -105,6 +106,4 @@ class CustomerPortalFleet(CustomerPortal):
             "fleet": fleet,
         }
         return values
-  
-
 
