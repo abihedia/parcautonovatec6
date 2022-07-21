@@ -98,5 +98,13 @@ class CustomerPortalFleet(CustomerPortal):
             return request.redirect("/my")
         values = self._fleet_get_page_view_values(fleet_sudo, **kw)
         return request.render("my_account_inherit.portal_fleet_page", values)
+    def _fleet_get_page_view_values(self, fleet, **kwargs):
+        closed_stages = request.env["fleet.vehicle.state"]
+        values = {
+            "page_name": "Parc Matériel",
+            "fleet": fleet,
+        }
+        return values
+  
 
 
