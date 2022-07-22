@@ -76,12 +76,11 @@
                     <table class="table table-hover o_portal_my_doc_table">
                         <thead>
                             <tr class="active">
-                                <th>Série</th>
+                                <th>N° de série</th>
+                                <th>N° de dossier</th>
                                 <th>Marque</th>
                                 <th>Modèle</th>
-                                <th>Durée de contrat</th>
-                                <th>Date d'installation</th>
-                                <th>Date de fin de contrat</th>
+                                <th>Lieu d'installation</th>
                                 <th>Etat</th>
 
                             </tr>
@@ -95,6 +94,10 @@
                                         <t t-esc="fleet.fleet_serie" />
                                     </a>
                                 </td>
+                                 <td>
+                                        <t t-esc="fleet.fleet_dossier_devis" />
+                                  
+                                </td>
                                 <td>
                                     <span t-field="fleet.fleet_marque" />
                                 </td>
@@ -104,15 +107,7 @@
                                 </td>
 
                                 <td>
-                                    <span t-field="fleet.fleet_duree" />
-                                </td>
-
-                                <td>
-                                    <span t-field="fleet.fleet_date_inst" />
-                                </td>
-
-                                <td>
-                                    <span t-field="fleet.fleet_expiration_date" />
+                                    <span t-field="fleet.fleet_installation" />
                                 </td>
 
                                 <td>
@@ -161,7 +156,8 @@
 
                             </div>
                             <br />
-
+<br/>
+                            <br/><br/>
                         </div>
                         <h4 class="page-header">History</h4>
                         <!-- Options:fleet Chatter: user can reply -->
