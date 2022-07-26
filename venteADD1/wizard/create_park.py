@@ -103,9 +103,25 @@ class CreatParkWizard(models.Model):
 
             for rec in self.devis_dossier.order_line:
                  list_numer_serie = []
+                 list_lot_id = [] 
                  for num in rec.list_serial_number:
                      if num.cocher == True:
                          list_numer_serie.append(num.name)
+                         lot_id = self.env['stock.production.lot'].search([("product_id", "=", rec.product_id.id), ("name", "=", num.name)])
+                         list_lot_id.append(lot_id)
+                 if list_lot_id:
+                     list_record = []
+                     for record in self.devis_dossier.picking_ids.move_line_ids_without_package:
+                         if record.product_id.id == rec.product_id.id:
+                             list_record.append(record)
+
+                     compteur = 0
+                     for lot_id_num in list_lot_id:
+                         if len(list_record) >= compteur+ 1:
+                             list_record[compteur].update({'lot_id': lot_id_num.id, 'qty_done': 1, })
+                             compteur +=1
+                     print("list_lot_id", list_lot_id)
+                     print("list_record", list_record)     
                  print(list_numer_serie)
 
                  if rec.product_id.parc_ok:
