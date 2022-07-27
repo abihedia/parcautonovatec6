@@ -33,16 +33,16 @@ class Partner(models.Model):
      #   compute="_compute_fleet_count", string="Fleets"
   #  )
 
-    def _compute_fleet_count(self):
-        for record in self:
-            fleet_ids = self.env["fleet.vehicle"].search(
-                [("partner_id", "child_of", record.id)]
-            )
-            record.fleet_count = len(fleet_ids)
+   # def _compute_fleet_count(self):
+    #    for record in self:
+     #       fleet_ids = self.env["fleet.vehicle"].search(
+      #          [("partner_id", "child_of", record.id)]
+        #    )
+        #    record.fleet_count = len(fleet_ids)
 
-            record.fleet_active_count = len(
-                fleet_ids.filtered(lambda ticket: not ticket.stage_id.closed)
-            )
+        #    record.fleet_active_count = len(
+         #       fleet_ids.filtered(lambda ticket: not ticket.stage_id.closed)
+          #  )
           #  count_active = record.fleet_active_count
             #count = record.helpdesk_ticket_count
            # record.fleet_count_string = "{} / {}".format(count_active, count)
