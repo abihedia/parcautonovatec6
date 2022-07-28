@@ -29,7 +29,7 @@ class StockHeritpicking(models.Model):
 class CreatParkWizard(models.Model):
     _name = 'creatpark'
     _description = 'Creat Park Auto wizard'
-    devis_dossier = fields.Many2one( "sale.order",string='Numéro de dossier')
+    devis_dossier = fields.Many2one( "sale.order",string='Numéro de dossierr')
 
     def create_parck(self):
         if self.devis_dossier:
